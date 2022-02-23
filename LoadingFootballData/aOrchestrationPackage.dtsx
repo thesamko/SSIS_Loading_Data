@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="aOrchestrationPackage"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{1C68A280-8C52-4DB4-A9F0-20AA1EFE792E}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{BC9A2C5D-9263-4AFD-B4EB-EAD18780F6A7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -27,6 +27,23 @@
       DTS:ObjectName="Dimensions">
       <DTS:Variables />
       <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Dimensions\dimActionType"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{48E6A04A-8B4A-499D-8C55-183E0DBA2640}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="dimActionType"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>dboDimActionType.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Dimensions\dimMatches"
           DTS:CreationName="Microsoft.ExecutePackageTask"
@@ -58,6 +75,23 @@
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
               <PackageName>leagueDimPlayers.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Dimensions\dimPosition"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{0BA40523-C8A5-4BF2-A724-6E19A566D37A}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="dimPosition"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>dboDimPositions.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -399,13 +433,21 @@
           Size="140,41.6"
           Id="Package\Dimensions\dimTeams"
           TopLeft="381.499977846941,18.066667541398" />
+        <NodeLayout
+          Size="132,41.6"
+          Id="Package\Dimensions\dimPosition"
+          TopLeft="135.308316735096,109.950001937151" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\Dimensions\dimActionType"
+          TopLeft="315.516642907594,106.700001911322" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="568.8,107.2"
-          Size="568.8,150.4"
+          PanelSize="588.8,219.2"
+          Size="588.8,262.4"
           Id="Package\Dimensions"
-          TopLeft="220.833324558206,40.7333336570527" />
+          TopLeft="263.541656194463,54.8166671023103" />
         <NodeLayout
           Size="134.4,41.6"
           Id="Package\Facts\factMatches"
@@ -476,33 +518,21 @@
           PanelSize="876.8,326.4"
           Size="876.8,369.6"
           Id="Package\Facts"
-          TopLeft="54.9999978144966,252.200002004306" />
+          TopLeft="122.708328457343,384.366669721339" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="505.233324558206,191.133333657053">
+          TopLeft="559.524992325903,317.21666710231">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-11.8333267437091,61.066668347253"
+              EndConnector="0,67.1500026190287"
               Start="0,0"
-              End="-11.8333267437091,53.566668347253">
+              End="0,59.6500026190287">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.5333341736265" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.5333341736265"
-                    Point2="0,30.5333341736265"
-                    Point3="-4,30.5333341736265" />
-                  <mssgle:LineSegment
-                    End="-7.83332674370905,30.5333341736265" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-7.83332674370905,30.5333341736265"
-                    Point2="-11.8333267437091,30.5333341736265"
-                    Point3="-11.8333267437091,34.5333341736265" />
-                  <mssgle:LineSegment
-                    End="-11.8333267437091,53.566668347253" />
+                    End="0,59.6500026190287" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
