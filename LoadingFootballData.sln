@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "leaguesLandingLoad", "LoadingFootballData\leaguesLandingLoad.dtproj", "{0456B1A5-A9F3-4E5B-B66A-6F3D57E62D1F}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "dwhLoad", "Integration Services Project2\dwhLoad.dtproj", "{F12DBA45-42D5-4FAD-A3D5-29DF8039013D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0456B1A5-A9F3-4E5B-B66A-6F3D57E62D1F}.Development|Default.ActiveCfg = Development
+		{0456B1A5-A9F3-4E5B-B66A-6F3D57E62D1F}.Development|Default.Build.0 = Development
+		{F12DBA45-42D5-4FAD-A3D5-29DF8039013D}.Development|Default.ActiveCfg = Development
+		{F12DBA45-42D5-4FAD-A3D5-29DF8039013D}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB2AB02F-17A5-4029-A050-CC701400F9C7}
+	EndGlobalSection
+EndGlobal
