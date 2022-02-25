@@ -11,12 +11,29 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="dimTeams"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{85640BD0-21F5-4D77-ABFA-D089441C450E}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{82F26ADC-82F5-41EC-A177-F394A0E94AA8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Close Procedure Log"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d33e11c5-e64d-4db6-8c57-c18790d1ea39}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Close Procedure Log"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C899C71D-016A-429E-9629-A4E41F4BEC48}"
+          SQLTask:SqlStatementSource="EXEC app.CloseProcedureLog 'DWH', 'dimTeams'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\dimTeams UPSERT"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -53,7 +70,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="bundesliga BATCH_INSERT"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -70,7 +87,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="epl BATCH_INSERT"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -87,7 +104,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="laliga BATCH_INSERT"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -104,7 +121,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="ligue1 BATCH_INSERT"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="5">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -121,7 +138,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="rfpl BATCH_INSERT"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -138,7 +155,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="seriea BATCH_INSERT"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -147,6 +164,23 @@
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set Procedure Log"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{689fd208-2655-468a-86d8-3a8d07f1f27c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set Procedure Log"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C899C71D-016A-429E-9629-A4E41F4BEC48}"
+          SQLTask:SqlStatementSource="EXEC app.SetProcedureLog  'DWH', 'dimTeams'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\TRUNCATE TABLE dimTeams_BATCH"
@@ -183,6 +217,22 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\dimTeams UPSERT" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{5B6D1744-702A-4C43-9814-BA8281E65DCD}"
+      DTS:From="Package\dimTeams UPSERT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Close Procedure Log" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{955AE32B-07D5-465B-B5C8-50CF5E6084EB}"
+      DTS:From="Package\Set Procedure Log"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\TRUNCATE TABLE dimTeams_BATCH" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -199,7 +249,7 @@
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\dimTeams UPSERT"
-          TopLeft="521.874979262552,498.333337293731" />
+          TopLeft="521.874979262552,555.533337748316" />
         <NodeLayout
           Size="210.4,41.6"
           Id="Package\Sequence Container\bundesliga BATCH_INSERT"
@@ -230,14 +280,14 @@
           PanelSize="965.6,163.2"
           Size="965.6,206.4"
           Id="Package\Sequence Container"
-          TopLeft="122.20832915273,222.083335098293" />
+          TopLeft="122.20832915273,279.283335552878" />
         <NodeLayout
           Size="278.4,47.2"
           Id="Package\TRUNCATE TABLE dimTeams_BATCH"
-          TopLeft="466.041648147836,85.1500006767114" />
+          TopLeft="466.041648147836,142.350001131296" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="605.124988650283,132.350000676711">
+          TopLeft="605.124988650283,189.550001131296">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -259,7 +309,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="604.641654207641,399.683335098293">
+          TopLeft="604.641654207641,456.883335552878">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -271,6 +321,70 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,91.1500021954375" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Close Procedure Log"
+          TopLeft="519.7083133575,678.800004587174" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="603.191646310026,597.133337748316">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,81.666666838858"
+              Start="0,0"
+              End="0,74.166666838858">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.166666838858" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Set Procedure Log"
+          TopLeft="502.208314052887,11.6666651444965" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="584.608314052887,53.2666651444965">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.6333340949486,89.0833359867997"
+              Start="0,0"
+              End="20.6333340949486,81.5833359867997">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5416679933998" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.5416679933998"
+                    Point2="0,44.5416679933998"
+                    Point3="4,44.5416679933998" />
+                  <mssgle:LineSegment
+                    End="16.6333340949486,44.5416679933998" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.6333340949486,44.5416679933998"
+                    Point2="20.6333340949486,44.5416679933998"
+                    Point3="20.6333340949486,48.5416679933998" />
+                  <mssgle:LineSegment
+                    End="20.6333340949486,81.5833359867997" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
