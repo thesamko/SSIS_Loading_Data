@@ -11,12 +11,29 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="aOrchestrationPackage"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{BC9A2C5D-9263-4AFD-B4EB-EAD18780F6A7}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{81FE33CA-265E-4DAE-9149-BE9E488AA2C1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Close Telemetry Recording"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{97FC5AA8-4FBF-4841-9E52-0418F8233E46}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Close Telemetry Recording"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{57AC10A4-EEB8-492E-B6E9-148CB292A8C5}"
+          SQLTask:SqlStatementSource="EXEC app.CloseTelemetry" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Dimensions"
       DTS:CreationName="STOCK:SEQUENCE"
@@ -398,6 +415,23 @@
         </DTS:Executable>
       </DTS:Executables>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Open Telemetry Recording"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3938E70C-C6ED-4C48-82D9-21F5D54BC888}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Open Telemetry Recording"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{57AC10A4-EEB8-492E-B6E9-148CB292A8C5}"
+          SQLTask:SqlStatementSource="EXEC app.OpenTelemetry 'Landing'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
@@ -408,6 +442,22 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Facts" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{45288758-8727-4F4A-BD99-B415F54F6CA9}"
+      DTS:From="Package\Open Telemetry Recording"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Dimensions" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{3A0EB8A9-579B-4255-9B17-011D17C417C5}"
+      DTS:From="Package\Facts"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Close Telemetry Recording" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -422,6 +472,10 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\Dimensions\dimActionType"
+          TopLeft="315.516642907594,106.700001911322" />
+        <NodeLayout
           Size="151.2,41.6"
           Id="Package\Dimensions\dimMatches"
           TopLeft="26.0666582557894,17.4666676447127" />
@@ -430,24 +484,20 @@
           Id="Package\Dimensions\dimPlayers"
           TopLeft="205.666651500596,16.3333341942893" />
         <NodeLayout
-          Size="140,41.6"
-          Id="Package\Dimensions\dimTeams"
-          TopLeft="381.499977846941,18.066667541398" />
-        <NodeLayout
           Size="132,41.6"
           Id="Package\Dimensions\dimPosition"
           TopLeft="135.308316735096,109.950001937151" />
         <NodeLayout
-          Size="184.8,41.6"
-          Id="Package\Dimensions\dimActionType"
-          TopLeft="315.516642907594,106.700001911322" />
+          Size="140,41.6"
+          Id="Package\Dimensions\dimTeams"
+          TopLeft="381.499977846941,18.066667541398" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="588.8,219.2"
           Size="588.8,262.4"
           Id="Package\Dimensions"
-          TopLeft="263.541656194463,54.8166671023103" />
+          TopLeft="263.541656194463,110.816667469652" />
         <NodeLayout
           Size="134.4,41.6"
           Id="Package\Facts\factMatches"
@@ -518,10 +568,10 @@
           PanelSize="876.8,326.4"
           Size="876.8,369.6"
           Id="Package\Facts"
-          TopLeft="122.708328457343,384.366669721339" />
+          TopLeft="122.708328457343,440.36667008868" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="559.524992325903,317.21666710231">
+          TopLeft="559.524992325903,373.216667469651">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -533,6 +583,58 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,59.6500026190287" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Open Telemetry Recording"
+          TopLeft="478.703684681728,3.56296299127884" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="559.522670438096,45.1629629912788">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.6537044783727"
+              Start="0,0"
+              End="0,58.1537044783727">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.1537044783727" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Close Telemetry Recording"
+          TopLeft="478.703684681728,885.333338935287" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="561.106006569536,809.96667008868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75.3666688466068"
+              Start="0,0"
+              End="0,67.8666688466068">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.8666688466068" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

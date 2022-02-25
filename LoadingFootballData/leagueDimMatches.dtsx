@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="leagueDimMatches"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{D0E53FB2-E56F-4F89-BFE8-B5E478D7D274}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{569B2D4E-1911-4528-9293-51F8E6C334B4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -68,6 +68,23 @@
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Close Procedure Log"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7d935e11-e2fa-475f-922c-950278e946cd}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Close Procedure Log"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{57AC10A4-EEB8-492E-B6E9-148CB292A8C5}"
+          SQLTask:SqlStatementSource="EXEC app.CloseProcedureLog 'Landing', 'dimMatches'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\FOR EACH LEAGUE"
       DTS:CreationName="STOCK:FOREACHLOOP"
@@ -166,8 +183,33 @@
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set Procedure Log"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{a21e4256-5763-43a6-8809-892104f9bbff}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set Procedure Log"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{57AC10A4-EEB8-492E-B6E9-148CB292A8C5}"
+          SQLTask:SqlStatementSource="EXEC app.SetProcedureLog 'Landing', 'dimMatches'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{520B8BBC-E1B5-4AC4-BC99-2FA6C8C3D78B}"
+      DTS:From="Package\Set Procedure Log"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\GET LEAGUES" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
@@ -176,6 +218,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\FOR EACH LEAGUE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{E09AD32A-35D1-4FB2-9405-95E15DD3F830}"
+      DTS:From="Package\FOR EACH LEAGUE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Close Procedure Log" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -188,29 +238,29 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="187.2,66.4"
-          Id="Package\FOR EACH LEAGUE\TRUNCATE TABLE dimMatches"
-          TopLeft="134.599986290932,27.4666690911187" />
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="164.8,59.2"
           Id="Package\FOR EACH LEAGUE\LOAD DATA"
-          TopLeft="145.199989271164,160.066670144929" />
+          TopLeft="184.366654381487,205.133337169753" />
+        <NodeLayout
+          Size="187.2,66.4"
+          Id="Package\FOR EACH LEAGUE\TRUNCATE TABLE dimMatches"
+          TopLeft="172.099984800816,17.9333356820213" />
         <EdgeLayout
           Id="Package\FOR EACH LEAGUE.PrecedenceConstraints[Constraint]"
-          TopLeft="227.899987781048,93.8666690911187">
+          TopLeft="266.233319591152,84.3333356820213">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66.2000010538102"
+              EndConnector="0,120.800001487732"
               Start="0,0"
-              End="0,58.7000010538102">
+              End="0,113.300001487732">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.7000010538102" />
+                    End="0,113.300001487732" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -222,28 +272,80 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="445.6,278.4"
-          Size="445.6,321.6"
+          PanelSize="519.2,329.6"
+          Size="519.2,372.8"
           Id="Package\FOR EACH LEAGUE"
-          TopLeft="216.933328432507,201.066668264601" />
+          TopLeft="241.933327439096,220.433330227004" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\GET LEAGUES"
-          TopLeft="357.499985794227,52.0000004132588" />
+          TopLeft="419.9999833107,93.6000007438659" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="439.816657113367,93.6000004132588">
+          TopLeft="501.966655374898,135.200000743866">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,107.466667851342"
+              EndConnector="0,85.2333294831381"
               Start="0,0"
-              End="0,99.9666678513422">
+              End="0,77.7333294831381">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,99.9666678513422" />
+                    End="0,77.7333294831381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Set Procedure Log"
+          TopLeft="419.9999833107,5.33333330578276" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="502.3999833107,46.9333333057828">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.6666674380832"
+              Start="0,0"
+              End="0,39.1666674380832">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.1666674380832" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Close Procedure Log"
+          TopLeft="416.933320485222,651.499996879895" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="500.433323962159,593.233330227004">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.2666666528913"
+              Start="0,0"
+              End="0,50.7666666528913">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.7666666528913" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

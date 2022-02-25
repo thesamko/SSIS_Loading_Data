@@ -11,12 +11,29 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="dimShotType"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{DFA85C23-BD46-4252-8470-0460C4ABE766}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{A4DBDC2E-4C4C-4B74-B546-1024D8FA6A7D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Close Procedure Log"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b5dbe584-cd7e-462f-8600-f980511ba002}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Close Procedure Log"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C899C71D-016A-429E-9629-A4E41F4BEC48}"
+          SQLTask:SqlStatementSource="EXEC app.CloseProcedureLog 'DWH', 'dimShotType'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\dimShotType_INSERT"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -32,6 +49,23 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{C899C71D-016A-429E-9629-A4E41F4BEC48}"
           SQLTask:SqlStatementSource="EXEC dbo.dimShotType_INSERT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set Procedure Log"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{858acbcb-8110-4a96-a9af-41fc12ad6eff}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set Procedure Log"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C899C71D-016A-429E-9629-A4E41F4BEC48}"
+          SQLTask:SqlStatementSource="EXEC app.SetProcedureLog  'DWH', 'dimShotType'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -61,6 +95,22 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\dimShotType_INSERT" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{227034A3-92F3-433C-A051-D0AF7D43E341}"
+      DTS:From="Package\dimShotType_INSERT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Close Procedure Log" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F769F8C5-5893-49F2-94C8-4321CF95588F}"
+      DTS:From="Package\Set Procedure Log"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\TRUNCATE TABLE dimShotType" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -73,29 +123,93 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="196.8,41.6"
           Id="Package\dimShotType_INSERT"
-          TopLeft="363.54165222082,246.133335289425" />
+          TopLeft="358.541652419502,353.60000281016" />
         <NodeLayout
           Size="278.4,47.2"
           Id="Package\TRUNCATE TABLE dimShotType"
-          TopLeft="318.541654008959,96.4166674329175" />
+          TopLeft="318.541654008959,197.816668238772" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="459.84165311489,143.616667432917">
+          TopLeft="457.341653214231,245.016668238772">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,102.516667856507"
+              EndConnector="0,108.583334571388"
               Start="0,0"
-              End="0,95.0166678565075">
+              End="0,101.083334571388">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,95.0166678565075" />
+                    End="0,101.083334571388" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Close Procedure Log"
+          TopLeft="384.374984726311,489.866669752333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="456.941652419502,395.20000281016">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.83333230680864,94.6666669421726"
+              Start="0,0"
+              End="9.83333230680864,87.1666669421726">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.3333334710863" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.3333334710863"
+                    Point2="0,47.3333334710863"
+                    Point3="4,47.3333334710863" />
+                  <mssgle:LineSegment
+                    End="5.83333230680864,47.3333334710863" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.83333230680864,47.3333334710863"
+                    Point2="9.83333230680864,47.3333334710863"
+                    Point3="9.83333230680864,51.3333334710863" />
+                  <mssgle:LineSegment
+                    End="9.83333230680864,87.1666669421726" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Set Procedure Log"
+          TopLeft="378.541651624773,55.8666654957661" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="459.341652816866,97.4666654957661">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,100.350002743006"
+              Start="0,0"
+              End="0,92.8500027430062">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,92.8500027430062" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
