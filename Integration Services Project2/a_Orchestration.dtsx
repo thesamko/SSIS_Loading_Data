@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="2/23/2022 4:02:50 PM"
+  DTS:CreationDate="2/23/2022 10:27:31 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LAPTOP-8V6UPAAI"
   DTS:CreatorName="LAPTOP-8V6UPAAI\samui"
-  DTS:DTSID="{5545A828-AEAE-4E36-8938-664FF994CA85}"
+  DTS:DTSID="{5352000B-7EF2-42B9-890B-531836F60C7A}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.170"
   DTS:LocaleID="2057"
-  DTS:ObjectName="aOrchestrationPackage"
+  DTS:ObjectName="a_Orchestration"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{BC9A2C5D-9263-4AFD-B4EB-EAD18780F6A7}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{F5D57B33-366B-4E73-A303-4C037F360809}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,7 @@
       DTS:refId="Package\Dimensions"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{968799E8-E15F-4315-A41A-CB63A5DB4DDC}"
+      DTS:DTSID="{69E151D5-26FD-477B-9C58-22B990A8B024}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Dimensions">
@@ -31,7 +31,7 @@
           DTS:refId="Package\Dimensions\dimActionType"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{48E6A04A-8B4A-499D-8C55-183E0DBA2640}"
+          DTS:DTSID="{B0BD94A8-DCF3-4A7E-9C2D-CA05D16ED496}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="dimActionType"
@@ -40,7 +40,41 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>dboDimActionType.dtsx</PackageName>
+              <PackageName>dimActionType.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Dimensions\dimAttackSpeed"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{3B6C7563-2455-4BF1-8F59-9203DE854610}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="dimAttackSpeed"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>dimAttackSpeed.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Dimensions\dimGamePlay"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{3B0AE689-1A9A-41AD-B3BC-3F776FEF565B}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="dimGamePlay"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>dimGamePlay.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -48,7 +82,7 @@
           DTS:refId="Package\Dimensions\dimMatches"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{8DB6121B-95AA-4BC8-8710-2B5D486B88C3}"
+          DTS:DTSID="{F2E0C788-B31D-402F-975C-BF5E7316817D}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="dimMatches"
@@ -57,7 +91,24 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueDimMatches.dtsx</PackageName>
+              <PackageName>dimMatches.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Dimensions\dimOutcomeType"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{1851F10B-D4F2-475F-86DC-B80BB36083FB}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="dimOutcomeType"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>dimOutcomeType.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -65,7 +116,7 @@
           DTS:refId="Package\Dimensions\dimPlayers"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{7295A09F-9987-4BB0-993D-7202B514BB44}"
+          DTS:DTSID="{24F21AA9-E8D1-4B0A-B960-C6F9B6F10C8C}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="dimPlayers"
@@ -74,24 +125,58 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueDimPlayers.dtsx</PackageName>
+              <PackageName>dimPlayers.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\Dimensions\dimPosition"
+          DTS:refId="Package\Dimensions\dimPositions"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{0BA40523-C8A5-4BF2-A724-6E19A566D37A}"
+          DTS:DTSID="{9E669423-9692-4306-A5D2-552FCA140543}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="dimPosition"
+          DTS:ObjectName="dimPositions"
           DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>dboDimPositions.dtsx</PackageName>
+              <PackageName>dimPositions.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Dimensions\dimShotType"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{884E5927-EDF4-421B-8302-DF0641FC97F9}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="dimShotType"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>dimShotType.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Dimensions\dimShotZone"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{CBECC2C6-FEBF-4C1B-8CF7-20D18455FABF}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="dimShotZone"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>dimShotZone.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -99,7 +184,7 @@
           DTS:refId="Package\Dimensions\dimTeams"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{FC7754D4-483F-42DA-9E72-33C357106988}"
+          DTS:DTSID="{178DDC91-9FEB-455F-9175-CF7508EB0EF9}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="dimTeams"
@@ -108,7 +193,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueDimTeams.dtsx</PackageName>
+              <PackageName>dimTeams.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -118,7 +203,7 @@
       DTS:refId="Package\Facts"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{371A7208-1439-47A6-B2B4-D8AFD53C69F2}"
+      DTS:DTSID="{1BA45B2B-9A33-4920-8A3A-A4F40B8688B3}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Facts">
@@ -128,7 +213,7 @@
           DTS:refId="Package\Facts\factMatches"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{51198C4D-8068-4AED-A2E4-FD1DEFCE1774}"
+          DTS:DTSID="{B4FF2626-EA7C-4AB3-9ADC-1A658A92B2FD}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factMatches"
@@ -137,7 +222,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactMatches.dtsx</PackageName>
+              <PackageName>factMatches.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -145,7 +230,7 @@
           DTS:refId="Package\Facts\factMatchLineups"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{7AA98E2B-1459-44D4-A085-10A7A4454093}"
+          DTS:DTSID="{3D002A95-2206-4459-90FE-B4548269EF97}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factMatchLineups"
@@ -154,7 +239,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactMatchLineups.dtsx</PackageName>
+              <PackageName>factMatchLineups.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -162,7 +247,7 @@
           DTS:refId="Package\Facts\factMinMaxPlayerStats"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{1AD4B290-39D2-4E2D-95C4-67C2F3576BAB}"
+          DTS:DTSID="{37197C34-A2FA-4501-A949-DE73D7257841}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factMinMaxPlayerStats"
@@ -171,7 +256,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactMinMaxPlayerStats.dtsx</PackageName>
+              <PackageName>factMinMaxPlayerStats.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -179,7 +264,7 @@
           DTS:refId="Package\Facts\factPlayerGamePlay"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{19D906A5-192A-4A36-9C6D-79F7F6C14BC8}"
+          DTS:DTSID="{BC04F686-1999-4B2E-A1A2-6BE0C7B7B4EA}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factPlayerGamePlay"
@@ -188,7 +273,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactPlayerGamePlay.dtsx</PackageName>
+              <PackageName>factPlayerGamePlay.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -196,7 +281,7 @@
           DTS:refId="Package\Facts\factPlayerPosition"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{B327D5A4-4BEA-4CD4-BEED-D3DF1E307E1C}"
+          DTS:DTSID="{0D674FBA-BB80-4E19-9B08-BA38F86E9B42}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factPlayerPosition"
@@ -205,7 +290,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactPlayerPosition.dtsx</PackageName>
+              <PackageName>factPlayerPosition.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -213,7 +298,7 @@
           DTS:refId="Package\Facts\factPlayerSeasonStats"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{2E9BDF42-BB74-46DF-8A89-3522C6CC6575}"
+          DTS:DTSID="{E9C2C883-D641-4C60-9986-A0CF93CF1985}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factPlayerSeasonStats"
@@ -222,7 +307,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactPlayerSeasonStats.dtsx</PackageName>
+              <PackageName>factPlayerSeasonStats.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -230,7 +315,7 @@
           DTS:refId="Package\Facts\factPlayerShots"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{CE789B90-F8A1-47CF-8526-619E98514224}"
+          DTS:DTSID="{CABF5E49-C956-4A55-9921-BB720EC69F77}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factPlayerShots"
@@ -239,7 +324,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactPlayerShots.dtsx</PackageName>
+              <PackageName>factPlayerShots.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -247,7 +332,7 @@
           DTS:refId="Package\Facts\factPlayerShotType"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{FDDFA5D2-CCB1-4C0A-9C37-F5FAC5EF7299}"
+          DTS:DTSID="{64219349-093E-4D2E-ADC8-BE3B3F096840}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factPlayerShotType"
@@ -256,7 +341,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactPlayerShotType.dtsx</PackageName>
+              <PackageName>factPlayerShotType.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -264,7 +349,7 @@
           DTS:refId="Package\Facts\factPlayerShotZone"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{C97EC646-A58E-406A-AD7A-74084AE1B2CA}"
+          DTS:DTSID="{FB9FE369-96AC-4552-844D-78F96D690C7D}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factPlayerShotZone"
@@ -273,7 +358,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactPlayerShotZone.dtsx</PackageName>
+              <PackageName>factPlayerShotZone.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -281,7 +366,7 @@
           DTS:refId="Package\Facts\factTeamAttackSpeed"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{89866809-F77B-47A8-9EC0-C122F0F6753C}"
+          DTS:DTSID="{582317A6-0BC7-425F-920E-0D61820D76F2}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factTeamAttackSpeed"
@@ -290,7 +375,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactTeamAttackSpeed.dtsx</PackageName>
+              <PackageName>factTeamAttackSpeed.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -298,7 +383,7 @@
           DTS:refId="Package\Facts\factTeamFormation"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{73FF7BB7-6036-4DDE-9BE3-8995EDE764C2}"
+          DTS:DTSID="{FB4554C4-D849-475E-94A5-C89AD17C690B}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factTeamFormation"
@@ -307,7 +392,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactTeamFormation.dtsx</PackageName>
+              <PackageName>factTeamFormation.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -315,7 +400,7 @@
           DTS:refId="Package\Facts\factTeamGamePlay"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{AE2C1E40-AC20-46BD-8A25-C7BEFDE39C0B}"
+          DTS:DTSID="{48C0D117-9C97-4287-A023-E021B247F66F}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factTeamGamePlay"
@@ -324,7 +409,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactTeamGamePlay.dtsx</PackageName>
+              <PackageName>factTeamGamePlay.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -332,7 +417,7 @@
           DTS:refId="Package\Facts\factTeamGameState"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{A3DE226D-1C07-41BE-AB7C-3789D9DB5F8A}"
+          DTS:DTSID="{862CB148-16F7-49C6-8C55-01360A225E3D}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factTeamGameState"
@@ -341,7 +426,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactTeamGameState.dtsx</PackageName>
+              <PackageName>factTeamGameState.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -349,7 +434,7 @@
           DTS:refId="Package\Facts\factTeamShotType"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{C53CA6B2-4659-4D3D-9532-737212B64BF4}"
+          DTS:DTSID="{74D17AB3-2F69-49A3-B3BB-B642263CC2AE}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factTeamShotType"
@@ -358,7 +443,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactTeamShotType.dtsx</PackageName>
+              <PackageName>factTeamShotType.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -366,7 +451,7 @@
           DTS:refId="Package\Facts\factTeamShotZone"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{FA068E98-C84B-4A66-80C4-0CC9E226BA43}"
+          DTS:DTSID="{04E1F614-F6DE-4B29-BBD5-F74CA5016D93}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factTeamShotZone"
@@ -375,7 +460,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactTeamShotZone.dtsx</PackageName>
+              <PackageName>factTeamShotZone.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -383,7 +468,7 @@
           DTS:refId="Package\Facts\factTeamTiming"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
-          DTS:DTSID="{E3DA5043-E365-49C0-89B3-52ABBFDDA078}"
+          DTS:DTSID="{4F895FA2-EAFC-40E0-81B8-556DECAF904B}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="factTeamTiming"
@@ -392,7 +477,7 @@
           <DTS:ObjectData>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
-              <PackageName>leagueFactTeamTiming.dtsx</PackageName>
+              <PackageName>factTeamTiming.dtsx</PackageName>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -403,7 +488,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{DC4C4BBD-943F-495F-B98D-B716B20BB958}"
+      DTS:DTSID="{87D24EF6-3F12-45E5-825A-433F7FE9C96B}"
       DTS:From="Package\Dimensions"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -422,117 +507,149 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="151.2,41.6"
-          Id="Package\Dimensions\dimMatches"
-          TopLeft="26.0666582557894,17.4666676447127" />
+          Size="147.2,41.6"
+          Id="Package\Dimensions\dimActionType"
+          TopLeft="43.86666203075,23.7333343802559" />
         <NodeLayout
-          Size="152.8,45.6"
+          Size="154.4,41.6"
+          Id="Package\Dimensions\dimAttackSpeed"
+          TopLeft="215.533321875997,25.4666677273645" />
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Dimensions\dimGamePlay"
+          TopLeft="389.699981621902,22.8666677067016" />
+        <NodeLayout
+          Size="134.4,41.6"
+          Id="Package\Dimensions\dimMatches"
+          TopLeft="554.699975065391,24.6000010538102" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Dimensions\dimOutcomeType"
+          TopLeft="41.3666621300911,92.2000015910468" />
+        <NodeLayout
+          Size="129.6,41.6"
           Id="Package\Dimensions\dimPlayers"
-          TopLeft="205.666651500596,16.3333341942893" />
+          TopLeft="229.699987979731,93.9333349381554" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Dimensions\dimPositions"
+          TopLeft="378.033315418827,96.5333349588183" />
         <NodeLayout
           Size="140,41.6"
+          Id="Package\Dimensions\dimShotType"
+          TopLeft="550.533308564294,94.8000016117096" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Dimensions\dimShotZone"
+          TopLeft="693.866636202072,96.5333349588184" />
+        <NodeLayout
+          Size="127.2,41.6"
           Id="Package\Dimensions\dimTeams"
-          TopLeft="381.499977846941,18.066667541398" />
-        <NodeLayout
-          Size="132,41.6"
-          Id="Package\Dimensions\dimPosition"
-          TopLeft="135.308316735096,109.950001937151" />
-        <NodeLayout
-          Size="184.8,41.6"
-          Id="Package\Dimensions\dimActionType"
-          TopLeft="315.516642907594,106.700001911322" />
+          TopLeft="702.199969204268,23.7333343802558" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="588.8,219.2"
-          Size="588.8,262.4"
+          PanelSize="882.4,156"
+          Size="882.4,199.2"
           Id="Package\Dimensions"
-          TopLeft="263.541656194463,54.8166671023103" />
+          TopLeft="79.3518486986926,42.7555558953462" />
         <NodeLayout
-          Size="134.4,41.6"
+          Size="140.8,41.6"
           Id="Package\Facts\factMatches"
-          TopLeft="48.1333292272358,23.3333357440101" />
+          TopLeft="27.5999972184501,22.9333362812467" />
         <NodeLayout
           Size="160,41.6"
           Id="Package\Facts\factMatchLineups"
-          TopLeft="208.966656169627,24.866668987804" />
+          TopLeft="185.099990959963,25.8666693390739" />
         <NodeLayout
           Size="184.8,41.6"
           Id="Package\Facts\factMinMaxPlayerStats"
-          TopLeft="386.466649116411,24.866668987804" />
+          TopLeft="361.766650606527,27.6000026861827" />
         <NodeLayout
-          Size="184.8,41.6"
+          Size="175.2,41.6"
           Id="Package\Facts\factPlayerGamePlay"
-          TopLeft="605.633307074177,23.1333356406954" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Facts\factPlayerPosition"
-          TopLeft="38.1333296246001,91.6000028514864" />
-        <NodeLayout
-          Size="184,43.2"
-          Id="Package\Facts\factPlayerSeasonStats"
-          TopLeft="223.966655573581,93.3333361985949" />
-        <NodeLayout
-          Size="151.2,41.6"
-          Id="Package\Facts\factPlayerShots"
-          TopLeft="427.299980827173,92.4666695250405" />
+          TopLeft="557.599976158143,29.3333360332912" />
         <NodeLayout
           Size="184.8,41.6"
+          Id="Package\Facts\factPlayerPosition"
+          TopLeft="613.803677628512,193.133337335056" />
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\Facts\factPlayerSeasonStats"
+          TopLeft="15.8148132327162,80.4888922179186" />
+        <NodeLayout
+          Size="154.4,43.2"
+          Id="Package\Facts\factPlayerShots"
+          TopLeft="221.370360620228,79.5259292473027" />
+        <NodeLayout
+          Size="173.6,41.6"
           Id="Package\Facts\factPlayerShotType"
-          TopLeft="613.133306776154,91.6000028514863" />
+          TopLeft="389.888872442423,80.4888922179186" />
         <NodeLayout
           Size="184.8,41.6"
           Id="Package\Facts\factPlayerShotZone"
-          TopLeft="34.7999964237215,150.53333665318" />
+          TopLeft="575.07405026901,81.4518551885346" />
         <NodeLayout
-          Size="180.8,41.6"
+          Size="184.8,41.6"
           Id="Package\Facts\factTeamAttackSpeed"
-          TopLeft="236.466655076875,148.800003306071" />
-        <NodeLayout
-          Size="168.8,41.6"
-          Id="Package\Facts\factTeamFormation"
-          TopLeft="433.133313928711,149.666669979626" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Facts\factTeamGamePlay"
-          TopLeft="628.133306180107,149.666669979625" />
+          TopLeft="419.518500894676,191.229633838748" />
         <NodeLayout
           Size="174.4,41.6"
+          Id="Package\Facts\factTeamFormation"
+          TopLeft="15.8148132327162,137.303707484257" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Facts\factTeamGamePlay"
+          TopLeft="202.85184283757,137.303707484257" />
+        <NodeLayout
+          Size="184.8,41.6"
           Id="Package\Facts\factTeamGameState"
-          TopLeft="35.6333297239411,210.333337128427" />
+          TopLeft="388.96294655329,142.118522337336" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="184.8,41.6"
           Id="Package\Facts\factTeamShotType"
-          TopLeft="231.466655275557,211.53333700445" />
+          TopLeft="585.259235049472,141.155559366721" />
         <NodeLayout
-          Size="167.2,41.6"
+          Size="184.8,41.6"
           Id="Package\Facts\factTeamShotZone"
-          TopLeft="423.133314326075,212.400003678004" />
+          TopLeft="218.592582952829,189.303707897516" />
         <NodeLayout
-          Size="152.8,41.6"
+          Size="184.8,41.6"
           Id="Package\Facts\factTeamTiming"
-          TopLeft="622.29997307857,208.933336983787" />
+          TopLeft="15.8148132327163,188.3407449269" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="876.8,326.4"
-          Size="876.8,369.6"
+          PanelSize="945.6,307.2"
+          Size="945.6,350.4"
           Id="Package\Facts"
-          TopLeft="122.708328457343,384.366669721339" />
+          TopLeft="58.2407384264617,304.007409823441" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="559.524992325903,317.21666710231">
+          TopLeft="520.551848698693,241.955555895346">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,67.1500026190287"
+              EndConnector="10.4888897277692,62.0518539280951"
               Start="0,0"
-              End="0,59.6500026190287">
+              End="10.4888897277692,54.5518539280951">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59.6500026190287" />
+                    End="0,27.0259269640475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.0259269640475"
+                    Point2="0,31.0259269640475"
+                    Point3="4,31.0259269640475" />
+                  <mssgle:LineSegment
+                    End="6.48888972776922,31.0259269640475" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.48888972776922,31.0259269640475"
+                    Point2="10.4888897277692,31.0259269640475"
+                    Point3="10.4888897277692,35.0259269640475" />
+                  <mssgle:LineSegment
+                    End="10.4888897277692,54.5518539280951" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
